@@ -1,37 +1,21 @@
-// 3 - alterando valor do contexto
+import HookUseEffect from "../components/HookUserEffect";
+import HookUseReducer from "../components/HookUseReducer";
+import HookUseState from "../components/HookUseState";
+
 import { useContext } from "react";
-import ChangeCounter from "../components/ChangeCounter";
-// import { CounterContext } from "../context/CounterContext";
-
-// 4 - refatorando com hook
-import { useCounterContext } from "../hooks/useCounterContext";
-
-// 5 - contexto mais complexo
-import { useTitleColorContext } from "../hooks/useTitleColorContext";
+import { SomeContext } from "../components/HookUseContext";
 
 const Home = () => {
-  // const { counter } = useContext(CounterContext);
-  const { counter } = useCounterContext();
-
-  // 5 - contexto mais complexo
-  const { color, dispatch } = useTitleColorContext();
-
-  // 6 - alterando contexto complexo
-  const setTitleColor = (color) => {
-    dispatch({ type: color });
-  };
-
+  const { contextValue } = useContext(SomeContext);
   return (
     <div>
-      <h1 style={{ color: color }}>Home</h1>
-      {/* 3 - alterando o valor do contexto */}
-      <p>Valor do contador: {counter}</p>
-      <ChangeCounter />
-      {/* 6 - alterando contexto complexo */}
-      <div>
-        <button onClick={() => setTitleColor("RED")}>Vermelho</button>
-        <button onClick={() => setTitleColor("BLUE")}>Azul</button>
-      </div>
+      <h1>Home</h1>
+      <HookUseState />
+      <HookUseReducer />
+      <HookUseEffect />
+      <h2>useContext</h2>
+      <p>Valor do contexto: {contextValue}</p>
+      <hr />
     </div>
   );
 };
