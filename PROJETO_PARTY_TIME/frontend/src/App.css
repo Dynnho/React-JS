@@ -1,0 +1,12 @@
+.party {
+  border: 2px solid red; /* debug */
+  padding: 1rem;
+  min-height: 300px;
+}
+
+.party img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
